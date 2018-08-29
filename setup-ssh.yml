@@ -1,0 +1,16 @@
+---
+# file: setup-ssh.yml
+#
+# # Initial System Setup
+# # SSH_KEY Exchange to facilitate Ansible Control
+
+ - hosts: all
+   gather_facts: no
+   tasks:
+   - name: Copy ssh key to all managed hosts
+     authorized_key: "
+        user='{{ vm_user }}'
+        key='{{ lookup('file', '~/.ssh/id_rsa.pub') }}'
+        manage_dir=yes
+        state=present"
+

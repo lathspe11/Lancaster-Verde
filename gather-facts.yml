@@ -1,0 +1,10 @@
+---
+# File: gather-facts.yml
+# Description: Used to gather facts from all hosts
+
+- hosts: all
+  gather_facts: true
+  vars_files:
+    - "{{ envars }}"
+  tasks:
+          

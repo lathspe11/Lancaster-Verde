@@ -1,0 +1,12 @@
+# ARRIS VM Monitoring 
+# Hosts  
+#
+localhost ansible_connection=local ansible_python_interpreter="/usr/bin/env python"
+
+[linux]
+localhost
+DansnsgVM
+
+[windows]
+NSGTest01
+

@@ -1,0 +1,8 @@
+---
+- hosts: linux
+  tasks:
+  - debug: msg="VM Name,OS Version,TZ,IP,uptime more than 3 days"
+    run_once: True
+  #- debug: msg="{{ansible_hostname}}"
+  #- debug: msg="{{ansible_nodename}}"
+  - debug: msg="{{ansible_hostname}},{{ansible_distribution_version}},{{ansible_date_time.tz}},{{ ansible_eth0["ipv4"]["address"] }},{{ansible_uptime_seconds/86400 > 3}}"

@@ -1,0 +1,11 @@
+
+- hosts: all
+  tasks:
+  -name: centos version less than 7
+   when: {{ ansible_distribution_version is version('7.02', '<') }}
+  #Download arris-epel-6 arris-CentOS-6-base
+ - name: centos verion greater than 7
+   when: {{ ansible_distribution_version is version('7.02', '>=') }}
+ #- debug: msg="{{ansible_hostname}}"
+ #  #- debug: msg="{{ansible_nodename}}"
+ - debug: msg="{{ansible_hostname}},{{ansible_distribution_version}},{{ansible_date_time.tz}},{{ ansible_eth0["ipv4"]["address"] }},{{ansible_uptime_seconds/86400}}"

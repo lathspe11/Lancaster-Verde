@@ -1,0 +1,20 @@
+---
+# file: azure-vm-reboot.yml
+
+ - hosts: all
+   connection: local
+   gather_facts: false
+   become: false
+   vars_files:
+     - "{{ azenvars }}"
+   tasks:
+     - name: Reboot nodes
+       shell: >
+         az vm restart
+         --name {{ inventory_hostname_short }}
+         --resource-group {{ GROUP_NAME }}
+
+## NOTES
+#
+# - This script can be used to reboot nodes.
+

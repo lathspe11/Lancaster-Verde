@@ -1,0 +1,8 @@
+---
+- hosts: linux
+  tasks:
+
+  - name: Copy and Execute the script
+    script: /home/arris/dev_repo/vm_mon/bash/run_vm_mon.sh
+    register: run_vm_mon
+  - debug: msg="{{run_vm_mon.stdout_lines}}"
